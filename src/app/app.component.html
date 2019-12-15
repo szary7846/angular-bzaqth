@@ -1,4 +1,34 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container">
+  <h1>
+    AutoKsiegowy
+  </h1>
+
+  <h2>Lista wydatków</h2>
+  <table class="table">
+    <tr>
+        <th>Kategoria</th>
+        <th>Data</th>
+        <th>Kwota</th>
+        <th>Opis</th>
+        <th>Paliwo</th>
+    </tr>
+
+<tr *ngFor="let wydatek of wydatki">
+    <td>{{wydatek.kategoria}}</td>
+   <td>{{wydatek.data | date:'dd.MM.yyyy'}}</td>
+<td class="text-sm-right">{{wydatek.kwota | number:'1.2-2'}} zł</td> 
+<td>{{wydatek.opis}}</td>
+
+<td *ngIf="wydatek.ileKm && wydatek.ileLitrow" >{{wydatek.ileKm }} Km / 
+{{wydatek.ileLitrow | number:'1.1-1'}} L </td> 
+
+<td *ngIf="wydatek.ileLitrow && wydatek.ileKm === '' "  >
+{{wydatek.ileLitrow | number:'1.1-1'}} L </td> 
+
+<td *ngIf="wydatek.ileKm && wydatek.ileLitrow === '' "  >
+{{wydatek.ileKm }} Km </td> 
+</tr>
+
+</table>
+  
+</div>
