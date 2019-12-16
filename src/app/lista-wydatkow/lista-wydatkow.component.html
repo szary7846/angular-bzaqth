@@ -16,14 +16,19 @@
 <td>{{wydatek.opis}}</td>
 
 <td *ngIf="wydatek.ileKm && wydatek.ileLitrow && wydatek.kategoria=='Tankowanie' " >{{wydatek.ileKm }} Km / 
-{{wydatek.ileLitrow | number:'1.1-1'}} L </td> 
+{{wydatek.ileLitrow | number:'1.1-1'}} L</td> 
 
 <td *ngIf="wydatek.ileLitrow && wydatek.ileKm == null && wydatek.kategoria=='Tankowanie' "  >
-{{wydatek.ileLitrow | number:'1.1-1'}} L </td> 
+{{wydatek.ileLitrow | number:'1.1-1'}} L</td> 
 
 <td *ngIf="wydatek.ileKm && wydatek.ileLitrow === '' && wydatek.kategoria=='Tankowanie' "  >
-{{wydatek.ileKm }} Km </td> 
+{{wydatek.ileKm }} Km</td> 
+
+
+<td *ngIf=" wydatek.ileKm==null && wydatek.ileLitrow==null " > </td> 
+
 </tr>
+
 
 </table>
   
