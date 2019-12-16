@@ -20,4 +20,12 @@ export class ListaWydatkowService {
 getWydatki() {
     return this.wydatki;
   }
+ getKategorie(): string[] {
+    return KATEGORIE;
+  }
+
+  dodajWydatek(nowyWydatek: Wydatek): void {
+    this.wydatki.push(nowyWydatek);
+  }
+
 }
