@@ -27,4 +27,7 @@ constructor(private ListaWydatkowService: ListaWydatkowService) {
    ngOnInit() {
     this.wydatki = this.ListaWydatkowService.getWydatki();
   }
+  usunWydatek(id: number) {
+    this.ListaWydatkowService.usunWydatek(id);
+  }
 }

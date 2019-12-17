@@ -17,12 +17,12 @@ kategorie: string[];
 constructor(private wydatkiService: ListaWydatkowService, private router: Router) { }
 
   ngOnInit() {
-        this.nowyWydatek = new Wydatek('Tankowanie', null, null, null);
+        this.nowyWydatek = new Wydatek(null,'Tankowanie', null, null, null);
   this.kategorie = this.wydatkiService.getKategorie();
   }
 onSubmit() {
     this.wydatkiService.dodajWydatek(this.nowyWydatek);
-    this.nowyWydatek = new Wydatek('Tankowanie', null, null, null);
+    this.nowyWydatek = new Wydatek(null,'Tankowanie', null, null, null);
     
     this.router.navigate(['/wydatki']);
   }
