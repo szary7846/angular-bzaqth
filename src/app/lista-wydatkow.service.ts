@@ -18,8 +18,11 @@ export class ListaWydatkowService {
     this.nextId=7;
   
   }
+  
 getWydatki() {
-    return this.wydatki;
+  // return this.wydatki;
+ return JSON.parse(localStorage.getItem("pamiec"));   //odczyt sie wali
+  // return localStorage.getItem("pamiec");
   }
  getKategorie(): string[] {
     return KATEGORIE;
@@ -27,7 +30,11 @@ getWydatki() {
 
   dodajWydatek(nowyWydatek: Wydatek): void {
     this.wydatki.push(nowyWydatek);
+    var myObj = { name: 'pamiec', breed: nowyWydatek };
+    localStorage.setItem("pamiec", JSON.stringify(myObj));
+    
     nowyWydatek.id=this.nextId++;
+
   }
 usunWydatek(id: number): void {
     const ind = this.wydatki.findIndex(wydatek => wydatek.id === id);
