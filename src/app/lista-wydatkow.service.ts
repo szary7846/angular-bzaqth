@@ -17,6 +17,7 @@ export class ListaWydatkowService {
     var obj=JSON.parse(localStorage.getItem("pamiec"));
     this.nextId=obj.length+1; //tu wez dostep do obiektu i wyciagnij ostatni id 
   console.log(obj.length+1);
+  
   }
   
 getWydatki() {
