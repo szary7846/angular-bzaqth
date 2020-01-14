@@ -8,20 +8,15 @@ export class ListaWydatkowService {
 
   constructor() {
     this.wydatki = [
-      new Wydatek(1,'Tankowanie', 252.43, '', new Date(2018, 4, 30),48,527),
-      new Wydatek(2,'Myjnia', 75, '', new Date(2018,4,2)),
-      new Wydatek(3,'Serwis', 1250, 'Klocki, rozrząd i parę drobiazgów', new Date(2018, 3, 16)),
-      new Wydatek(4,'Inne', 315.50, 'Różowe futerko na kierownicę', new Date(2018, 3, 16)),
-      new Wydatek(5,'Tankowanie', 325.20, 'Do pełna po urlopie', new Date(2017, 7, 12),48),
-      new Wydatek(6,'Tankowanie', 325.20, 'Do pełna po urlopie', new Date(2017, 7, 12),'',527)
+      JSON.parse(localStorage.getItem("pamiec"))
     ];
-    this.nextId=7;
+    this.nextId=1;
   
   }
   
 getWydatki() {
-  // return this.wydatki;
- return JSON.parse(localStorage.getItem("pamiec"));   //odczyt sie wali
+   return this.wydatki;
+ //return JSON.parse(localStorage.getItem("pamiec"));   //odczyt sie wali
   // return localStorage.getItem("pamiec");
   }
  getKategorie(): string[] {
@@ -30,14 +25,21 @@ getWydatki() {
 
   dodajWydatek(nowyWydatek: Wydatek): void {
     this.wydatki.push(nowyWydatek);
-    var myObj = { name: 'pamiec', breed: nowyWydatek };
+    nowyWydatek.id=this.nextId++;
+
+    var myObj =  this.wydatki ;
     localStorage.setItem("pamiec", JSON.stringify(myObj));
     
-    nowyWydatek.id=this.nextId++;
+    
 
   }
 usunWydatek(id: number): void {
     const ind = this.wydatki.findIndex(wydatek => wydatek.id === id);
     this.wydatki.splice(ind, 1);
+       let myObj =  this.wydatki ;
+      //  console.log(this.wydatki.splice(ind, 1));
+   localStorage.setItem("pamiec", JSON.stringify(myObj));
+   
+
   }
 }
