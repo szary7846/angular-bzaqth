@@ -3,7 +3,7 @@ import { Wydatek, KATEGORIE } from './wydatek';
 
 //dodaj osdwierzanie strony po usunieciu obiektu 
 //ogarnij id i usuwanie wszystkich obiektow zamiast 1 konkretnego 
-// po odseierzeniu stronu, nadpsiuje mi całkowicie dane w locala storage, zamiast dodac wartosc kolejna
+//po odseierzeniu stronu, nadpsiuje mi całkowicie dane w locala storage, zamiast dodac wartosc kolejna
 
 @Injectable()
 export class ListaWydatkowService {
@@ -17,7 +17,7 @@ export class ListaWydatkowService {
     var obj=JSON.parse(localStorage.getItem("pamiec"));
     this.nextId=obj.length+1; //tu wez dostep do obiektu i wyciagnij ostatni id 
   console.log(obj.length+1);
-  
+
   }
   
 getWydatki() {
