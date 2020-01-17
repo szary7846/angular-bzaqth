@@ -17,6 +17,8 @@ export class ListaWydatkowService {
     //  JSON.parse(localStorage.getItem("pamiec"))
     ];
     let obj=JSON.parse(localStorage.getItem("pamiec"));
+    if(obj==null)
+    localStorage.setItem("pamiec", JSON.stringify(this.wydatki));
     this.nextId=0;
     if(obj[obj.length-1])
     this.nextId=obj[obj.length-1].id+1;
