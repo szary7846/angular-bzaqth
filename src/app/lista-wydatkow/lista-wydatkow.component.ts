@@ -2,6 +2,7 @@ import { Wydatek, KATEGORIE } from '../wydatek';
 import { ListaWydatkowService } from '../lista-wydatkow.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-lista-wydatkow',
   templateUrl: './lista-wydatkow.component.html',
@@ -21,7 +22,7 @@ export class ListaWydatkowComponent  {
   name = 'Angular';
    wydatki: Wydatek[];
 
-constructor(private ListaWydatkowService: ListaWydatkowService ) {
+constructor(private ListaWydatkowService: ListaWydatkowService) {
 
  }
    ngOnInit( ) {
@@ -30,8 +31,10 @@ constructor(private ListaWydatkowService: ListaWydatkowService ) {
    //this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
 
   }
+ 
   usunWydatek(id: number) {
+    
     this.ListaWydatkowService.usunWydatek(id);
-  
+
   }
 }

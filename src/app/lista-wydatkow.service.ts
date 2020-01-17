@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Wydatek, KATEGORIE } from './wydatek';
 
+
 //dodaj osdwierzanie strony po usunieciu obiektu 
  
 
@@ -11,7 +12,7 @@ export class ListaWydatkowService {
   private nextId:number;
   private wydatki: Wydatek[];
 
-  constructor() {
+  constructor(  ) {
     this.wydatki = [
      // JSON.parse(localStorage.getItem("pamiec"))
     ];
