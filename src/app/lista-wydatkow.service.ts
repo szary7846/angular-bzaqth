@@ -46,7 +46,7 @@ getWydatki() {
     }
    
     this.wydatki.push(nowyWydatek);
-    console.log( nowyWydatek.id);
+    //console.log( nowyWydatek.id);
     
 
     var myObj =  this.wydatki ;

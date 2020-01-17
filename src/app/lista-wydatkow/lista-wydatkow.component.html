@@ -10,7 +10,7 @@
         <th></th>
     </tr>
 
-<tr *ngFor="let wydatek of wydatki">
+<tr *ngFor="let wydatek of wydatki ">
     <td>{{wydatek.kategoria}}</td>
    <td>{{wydatek.data | date:'dd.MM.yyyy'}}</td>
 <td class="text-sm-right">{{wydatek.kwota | number:'1.2-2'}} zł</td> 
@@ -22,15 +22,17 @@
 <td *ngIf="wydatek.ileLitrow && wydatek.ileKm == null && wydatek.kategoria=='Tankowanie' "  >
 {{wydatek.ileLitrow | number:'1.1-1'}} L</td> 
 
-<td *ngIf="wydatek.ileKm && wydatek.ileLitrow === '' && wydatek.kategoria=='Tankowanie' "  >
-{{wydatek.ileKm }} Km</td> 
+<td *ngIf="wydatek.ileKm && wydatek.ileLitrow == null && wydatek.kategoria=='Tankowanie' ">
+{{wydatek.ileKm}} Km</td> 
 
 
-<td *ngIf=" wydatek.ileKm==null && wydatek.ileLitrow==null " > </td> 
+<td *ngIf=" wydatek.ileKm==null && wydatek.ileLitrow==null " > </td>
+<td *ngIf=" (wydatek.ileKm!=null || wydatek.ileLitrow!=null)&& wydatek.kategoria!='Tankowanie' " > </td>
+
+
       <td>
        <button class="btn btn-danger" (click)="usunWydatek(wydatek.id)" >Usuń</button>
       </td>
-
 </tr>
 
 
