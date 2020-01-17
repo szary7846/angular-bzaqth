@@ -14,7 +14,7 @@ export class ListaWydatkowService {
 
   constructor(  ) {
     this.wydatki = [
-     // JSON.parse(localStorage.getItem("pamiec"))
+    //  JSON.parse(localStorage.getItem("pamiec"))
     ];
     let obj=JSON.parse(localStorage.getItem("pamiec"));
     this.nextId=0;
@@ -26,7 +26,10 @@ export class ListaWydatkowService {
   }
   
 getWydatki() {
-return JSON.parse(localStorage.getItem("pamiec"));
+  this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
+  return this.wydatki;
+ //  return this.wydatki;
+ 
   }
  getKategorie(): string[] {
     return KATEGORIE;
@@ -57,11 +60,10 @@ usunWydatek(id: number): void {
   
     const ind = this.wydatki.findIndex(wydatek => wydatek.id === id);
     this.wydatki.splice(ind, 1);
-       let myObj =  this.wydatki ;
+      
    
-   localStorage.setItem("pamiec", JSON.stringify(myObj));
-   
-
-
+   localStorage.setItem("pamiec", JSON.stringify(this.wydatki));
+  // window.location.reload();
+//  document.getElementById("odswierz").innerHTML=localStorage.getItem("pamiec"); 
   }
 }

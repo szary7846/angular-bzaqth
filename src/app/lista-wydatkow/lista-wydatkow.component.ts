@@ -35,6 +35,6 @@ constructor(private ListaWydatkowService: ListaWydatkowService) {
   usunWydatek(id: number) {
     
     this.ListaWydatkowService.usunWydatek(id);
-
+   this.wydatki = this.ListaWydatkowService.getWydatki();
   }
 }
