@@ -21,17 +21,17 @@ export class ListaWydatkowComponent  {
   name = 'Angular';
    wydatki: Wydatek[];
 
-constructor(private ListaWydatkowService: ListaWydatkowService) {
+constructor(private ListaWydatkowService: ListaWydatkowService ) {
 
  }
-   ngOnInit() {
-   // this.wydatki = this.ListaWydatkowService.getWydatki();
+   ngOnInit( ) {
+    this.wydatki = this.ListaWydatkowService.getWydatki();
    
-   this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
+   //this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
 
   }
   usunWydatek(id: number) {
     this.ListaWydatkowService.usunWydatek(id);
- 
+  
   }
 }

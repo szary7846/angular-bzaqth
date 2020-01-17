@@ -1,6 +1,6 @@
 
   <h2>Lista wydatków</h2>
-  <table class="table">
+  <table class="table" >
     <tr>
         <th>Kategoria</th>
         <th>Data</th>
@@ -28,7 +28,7 @@
 
 <td *ngIf=" wydatek.ileKm==null && wydatek.ileLitrow==null " > </td> 
       <td>
-        <button class="btn btn-danger" (click)="usunWydatek(wydatek.id)">Usuń</button>
+        <button  class="btn btn-danger" (click)="usunWydatek(wydatek.id)" >Usuń</button>
       </td>
 
 </tr>

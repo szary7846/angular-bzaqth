@@ -25,7 +25,7 @@ export class ListaWydatkowService {
   }
   
 getWydatki() {
-//JSON.parse(localStorage.getItem("pamiec"));
+return JSON.parse(localStorage.getItem("pamiec"));
   }
  getKategorie(): string[] {
     return KATEGORIE;
@@ -59,7 +59,8 @@ usunWydatek(id: number): void {
        let myObj =  this.wydatki ;
    
    localStorage.setItem("pamiec", JSON.stringify(myObj));
-  
+   
+
 
   }
 }
