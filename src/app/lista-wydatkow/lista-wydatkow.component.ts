@@ -25,9 +25,10 @@ constructor(private ListaWydatkowService: ListaWydatkowService) {
 
  }
    ngOnInit() {
-  //  this.wydatki = this.ListaWydatkowService.getWydatki();
+   // this.wydatki = this.ListaWydatkowService.getWydatki();
    
    this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
+
   }
   usunWydatek(id: number) {
     this.ListaWydatkowService.usunWydatek(id);

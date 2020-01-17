@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Wydatek, KATEGORIE } from './wydatek';
 
 //dodaj osdwierzanie strony po usunieciu obiektu 
-//ogarnij id i usuwanie wszystkich obiektow zamiast 1 konkretnego 
-//po odseierzeniu stronu, nadpsiuje mi całkowicie dane w locala storage, zamiast dodac wartosc kolejna
+ 
+
+
 
 @Injectable()
 export class ListaWydatkowService {
@@ -14,24 +15,34 @@ export class ListaWydatkowService {
     this.wydatki = [
      // JSON.parse(localStorage.getItem("pamiec"))
     ];
-    var obj=JSON.parse(localStorage.getItem("pamiec"));
-    this.nextId=obj.length+1; //tu wez dostep do obiektu i wyciagnij ostatni id 
-  console.log(obj.length+1);
+    let obj=JSON.parse(localStorage.getItem("pamiec"));
+    this.nextId=0;
+    if(obj[obj.length-1])
+    this.nextId=obj[obj.length-1].id+1;
+    
+  
 
   }
   
 getWydatki() {
- //  return this.wydatki;
- return this.wydatki.push(JSON.parse(localStorage.getItem("pamiec")));   
-  // return localStorage.getItem("pamiec");
+//JSON.parse(localStorage.getItem("pamiec"));
   }
  getKategorie(): string[] {
     return KATEGORIE;
   }
 
   dodajWydatek(nowyWydatek: Wydatek): void {
+    let obj=JSON.parse(localStorage.getItem("pamiec"));
+    this.wydatki=obj;
+    //console.log( obj[obj.length-1].id);
+      nowyWydatek.id=this.nextId++;
+    if(!obj[obj.length-1]){
+    nowyWydatek.id=0;
+    this.nextId=1;
+    }
+   
     this.wydatki.push(nowyWydatek);
-    nowyWydatek.id=this.nextId++;
+    console.log( nowyWydatek.id);
     
 
     var myObj =  this.wydatki ;
@@ -41,12 +52,14 @@ getWydatki() {
 
   }
 usunWydatek(id: number): void {
+  this.wydatki=JSON.parse(localStorage.getItem("pamiec"));
+  
     const ind = this.wydatki.findIndex(wydatek => wydatek.id === id);
     this.wydatki.splice(ind, 1);
        let myObj =  this.wydatki ;
-     // console.log(this.wydatki.splice(ind, 1));
+   
    localStorage.setItem("pamiec", JSON.stringify(myObj));
-   console.log(Wydatek.id);
+  
 
   }
 }
