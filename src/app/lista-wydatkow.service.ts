@@ -52,7 +52,7 @@ getWydatki() {
     var myObj =  this.wydatki ;
    localStorage.setItem("pamiec", JSON.stringify(myObj));
     
-    
+     
 
   }
 usunWydatek(id: number): void {
